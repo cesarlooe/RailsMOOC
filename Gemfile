@@ -19,6 +19,7 @@ gem 'sendgrid-ruby'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug'

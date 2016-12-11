@@ -8,7 +8,7 @@
   </ul>
 
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">My Profile</a></li>
+    <li><%= link_to "My Profile", edit_user_registration_path %></li>
     <li><a href="#!">My Courses</a></li>
     <li class="divider"></li>
     <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
@@ -27,9 +27,10 @@
           <% else %>
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown1"> 
-              <%= image_tag avatar_url(current_user), class: "circle responsive-img" %>&nbsp;
+              <%= image_tag avatar_url(current_user), size:"32", class: "circle responsive-img" %>&nbsp;
               <%= current_user.name %>
-            <i class="material-icons right">arrow_drop_down</i></a></li>
+              <i class="material-icons right">arrow_drop_down</i></a>
+            </li>
           <% end %>
         </ul>
         <ul class="side-nav" id="mobile-demo">

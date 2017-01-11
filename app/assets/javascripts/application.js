@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require active_admin
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.timeago

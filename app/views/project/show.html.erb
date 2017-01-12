@@ -28,7 +28,7 @@
                 <button id="customButton" type="button" class="btn pink darken-2">Take this Project</button><br>
                 <script>
                   var handler = StripeCheckout.configure({
-                    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                    key: '<%= ENV['STRIPE_PUBLIC_KEY'] %>',
                     locale: 'auto',
                     token: function(token, arg) {
                       $('#stripeToken').val(token.id);
@@ -63,13 +63,13 @@
       <% else %>
 
         <div class="center">
-          <%= image_tag avatar_url(current_user), class: "circle responsive-img" %><br/>
+          <%= image_tag avatar_url(current_user), class: "circle responsive-img", style: "height:40px;width:40px;" %><br/>
           <h5><%= current_user.name %></h5>
         </div>
         <div class="card-action">
           <% @users.each do |u| %>
             <span class="valign-wrappr">
-              <%= image_tag avatar_url(u), class: "circle responsive-img" %>&nbsp;
+              <%= image_tag avatar_url(u), class: "circle responsive-img", style: "height:40px;width:40px;"%>&nbsp;
               <%= u.name %>
             </span>
             <br>

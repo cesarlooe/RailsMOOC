@@ -1,7 +1,7 @@
 class MyMailer < ActionMailer::Base
 
   def sendgrid
-    @sendgrid ||= SendGrid::API.new(api_key: "YOUR_API_KEY")
+    @sendgrid ||= SendGrid::API.new(api_key: ENV['MAILER_API_KEY'])
   end
 
   def new_user(user)

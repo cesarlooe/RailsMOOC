@@ -1,3 +1,22 @@
+<% content_for :head do %>
+  <title><%= @project.name %> | RailsMOOC</title>
+
+  <!-- Tiwtter Card Data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@railsmooc">
+  <meta name="twitter:creator" content="@cesarlooe">
+  <meta name="twitter:title" content="<%= @project.name %>">
+  <meta name="twitter:description" content="<%= @project.content %>">
+  <meta name="twitter:image:src" content="<%= image_url @project.image %>">
+
+  <!-- Open Graph Data -->
+  <meta name="og:site_name" content="RailsMOOC">
+  <meta name="og:type" content="website">
+  <meta name="og:title" content="<%= @project.name %>">
+  <meta name="og:description" content="<%= @project.content %>">
+  <meta name="og:image" content="<%= @project.image %>">
+<% end %>
+
 <div class="row">
   <div class="col m4">
     <div class="card z-depth-2">
@@ -115,8 +134,22 @@
           </div>
         </div>
 
-        <div id="discussions" class="col s12">
-          
+        <div id="discussions" class="col s10 offset-s1">
+          <div id="disqus_thread"></div>
+          <script>
+
+          var disqus_config = function () {
+            this.page.identifier = '<%= @project.id %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = '//railsmooc.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
         </div>
       </div>
 
